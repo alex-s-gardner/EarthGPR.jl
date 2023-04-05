@@ -1,0 +1,32 @@
+# This script simply copies a subset of the full height_change dataset to the package data folder
+
+geotile_width = 2 #geotile width [degrees]
+import EarthGPR
+
+# local folder 
+local_folder = "/Users/gardnera/data/height_change/test/"
+
+# define geotiles 
+geotiles = EarthGPR.geotile_define(geotile_width)
+
+# Greenland extent
+extent = (min_x = -73.5, min_y = 59.5, max_x = -12., max_y = 84.)
+
+# geotiles within extent
+ind = EarthGPR.within.(Ref(extent), geotiles.extent)
+geotiles = geotiles[ind,:]
+
+# select DEM for which hight_change was calculated
+dem = "cop30_v2"
+
+# copy files from local to package 
+for geotile in eachrow(geotiles)
+    fname = joinpath(local_folder, "$(geotile.id).$(dem)")
+    
+    if isfile(fname)
+        cp(fname, "data/$(geotile.id).$(dem)", force=true)
+        cp(fname * "+", "data/$(geotile.id).$(dem)+", force=true)
+    else
+        println(fname)
+    end
+end

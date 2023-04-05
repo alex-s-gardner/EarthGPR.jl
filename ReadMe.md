@@ -18,14 +18,14 @@ julia> DataFrame(Arrow.Table("data/lat[+82+84]lon[-072-070].cop30_v2"))
   ⋮   │     ⋮         ⋮          ⋮           ⋮           ⋮          ⋮         ⋮       ⋮
 ```
 
-`longitude`: degrees longitude
-`latitude`: degrees latitude
-`offset`: model intercept in meters [can be ignored]
-`trend`: model trend in meters per year, this is the variable that we want to extrapolate
-`amplitude`: amplitude of seasonal sinusoid included in model fit in meters
-`phase`: phase of seasonal sinusoid included in model fit in meters
-`count`: number of observations that the model was fit to
-`rmse`: the root mean square error of the observations to the model
+`longitude`: degrees longitude  
+`latitude`: degrees latitude  
+`offset`: model intercept in meters [can be ignored]  
+`trend`: model trend in meters per year, this is the variable that we want to extrapolate  
+`amplitude`: amplitude of seasonal sinusoid included in model fit in meters  
+`phase`: phase of seasonal sinusoid included in model fit in meters  
+`count`: number of observations that the model was fit to  
+`rmse`: the root mean square error of the observations to the model  
 
 # Here's what the ancillary data looks like:
 ```julia
@@ -38,18 +38,18 @@ julia> DataFrame(Arrow.Table("data/lat[+82+84]lon[-072-070].cop30_v2+"))
   ⋮   │   ⋮         ⋮          ⋮          ⋮         ⋮      ⋮        ⋮        ⋮        ⋮        ⋮        ⋮     ⋱
   ```
 
- `h`: elevation in meters [this is a strong predictor]
- `inlandwater`: inland water body [true/false]
- `landice`: land ice, i.e. glacier, ice sheet, ice cap, icefield [true/false]
- `floatingice`: ice shelf [true/false]
- `land`: ice shelf [true/false]
- `ocean`: ocean [true/false]
- `thickness`: land ice thickness in meters [this is a weak predictor]
- `region`: Randolph Glacier Inventory region code
- `vx0`: surface velocity in meters per year in x direction [EPSG:3413 corrdinates]
- `vy0`: surface velocity in meters per year in y direction [EPSG:3413 corrdinates]
- `dhdxs`: smoothed surface slope in x [EPSG:3413 corrdinates]
- `dhdys`: smoothed surface slope in y [EPSG:3413 corrdinates]
+ `h`: elevation in meters [this is a strong predictor]  
+ `inlandwater`: inland water body [true/false]  
+ `landice`: land ice, i.e. glacier, ice sheet, ice cap, icefield [true/false]  
+ `floatingice`: ice shelf [true/false]  
+ `land`: ice shelf [true/false]  
+ `ocean`: ocean [true/false]  
+ `thickness`: land ice thickness in meters [this is a weak predictor]  
+ `region`: Randolph Glacier Inventory region code  
+ `vx0`: surface velocity in meters per year in x direction [EPSG:3413 corrdinates]  
+ `vy0`: surface velocity in meters per year in y direction [EPSG:3413 corrdinates]  
+ `dhdxs`: smoothed surface slope in x [EPSG:3413 corrdinates]  
+ `dhdys`: smoothed surface slope in y [EPSG:3413 corrdinates]  
 
 Note: velocity magnitude (v = sqrt(vx.^2 .+ vy.^2)) is a strong predictor
 
